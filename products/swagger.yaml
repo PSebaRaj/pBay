@@ -1,0 +1,81 @@
+definitions:
+  Product:
+    properties:
+      buy_now_price:
+        format: uint32
+        type: integer
+        x-go-name: Buy_Now_Price
+      created_at:
+        format: date-time
+        type: string
+        x-go-name: CreatedAt
+      current_price:
+        format: uint32
+        type: integer
+        x-go-name: Current_Price
+      expires_at:
+        format: date-time
+        type: string
+        x-go-name: ExpiresAt
+      id:
+        format: uint32
+        type: integer
+        x-go-name: Product_ID
+      image:
+        type: string
+        x-go-name: Image
+      num_of_bids:
+        format: uint32
+        type: integer
+        x-go-name: Num_Of_Bids
+      product_name:
+        type: string
+        x-go-name: Product_Name
+      seller_name:
+        type: string
+        x-go-name: Seller
+    type: object
+    x-go-package: pbay/products/models
+paths:
+  /products:
+    get:
+      description: Returns all users in system (name, email, password, created_at,
+        updated_at)
+      operationId: getProducts
+      produces:
+      - application/json
+      responses:
+        "200":
+          $ref: '#/responses/productsResponse'
+        "204":
+          $ref: '#/responses/error'
+      tags:
+      - ProductData
+    post:
+      consumes:
+      - application/json
+      description: Adds a product to the database
+      operationId: addProduct
+      produces:
+      - application/json
+      responses:
+        "201":
+          $ref: '#/responses/productResponse'
+        "422":
+          $ref: '#/responses/error'
+        "500":
+          $ref: '#/responses/error'
+      tags:
+      - ProductAdd
+responses:
+  productResponse:
+    description: ""
+    schema:
+      $ref: '#/definitions/Product'
+  productsResponse:
+    description: ""
+    schema:
+      items:
+        $ref: '#/definitions/Product'
+      type: array
+swagger: "2.0"
