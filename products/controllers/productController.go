@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"pbay/products/models"
 	"pbay/products/utils"
+
+	"github.com/gorilla/mux"
 )
 
 // swagger:response productsResponse
@@ -74,4 +76,24 @@ func GetProducts(w http.ResponseWriter, r *http.Request) {
 	}
 
 	utils.ToJson(w, products, http.StatusFound)
+}
+
+// to see all of seller's listings
+func GetProductsBySeller(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+
+	products := models.GetProductsBySeller(vars["seller_name"])
+
+	if products == nil {
+		utils.ToJson(w, nil, http.StatusNoContent)
+		return
+	}
+
+	utils.ToJson(w, products, http.StatusFound)
+}
+
+// for search functionality
+// takes in json data
+func GetProductByProductName(w http.ResponseWriter, r *http.Request) {
+
 }
