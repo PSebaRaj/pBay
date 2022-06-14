@@ -39,8 +39,8 @@ definitions:
 paths:
   /products:
     get:
-      description: Returns all users in system (name, email, password, created_at,
-        updated_at)
+      description: Returns all products in system (id, product_name, seller_name,
+        current_price, buy_now_price, num_of_bids, created_at, expires_at)
       operationId: getProducts
       produces:
       - application/json
@@ -67,6 +67,30 @@ paths:
           $ref: '#/responses/error'
       tags:
       - ProductAdd
+  /products/{product_name}:
+    delete:
+      description: Removes product given name of the product
+      operationId: removeProduct
+      responses:
+        "200":
+          $ref: '#/responses/nil'
+        "400":
+          $ref: '#/responses/error'
+      tags:
+      - ProductData
+  /products/{seller_name}:
+    get:
+      description: Returns all products in system listed under the queried seller
+      operationId: getProducts
+      produces:
+      - application/json
+      responses:
+        "200":
+          $ref: '#/responses/productsResponse'
+        "204":
+          $ref: '#/responses/error'
+      tags:
+      - ProductData
 responses:
   productResponse:
     description: ""

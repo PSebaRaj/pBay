@@ -46,6 +46,7 @@ func GetProductByProductName(p_name string) Product {
 
 	var product Product
 	db.Where("product_name = ?", p_name).Find(&product)
+
 	return product
 }
 
@@ -55,9 +56,21 @@ func GetProductsBySeller(s_name string) []Product {
 	defer db.Close()
 
 	var products []Product
-	db.Where("seller_name = ?", s_name).Find(&products)
+	db.Where("seller = ?", s_name).Find(&products)
 	if len(products) == 0 { // throw empty http error code later
 		return nil
 	}
 	return products
+}
+
+func RemoveProduct(p_name string) error {
+	db := Connect()
+	defer db.Close()
+
+	var product Product
+	db.Where("product_name = ?", p_name).Delete(&product)
+
+	// should throw better errors
+
+	return nil
 }
