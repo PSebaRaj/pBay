@@ -13,14 +13,11 @@ Build and run the application:
 	`./start-pbay-backend.sh`
 
 
-The game will be played with 2 players and the output of the game will be printed out in the terminal.
-
 ## Diagram
 ![pBay](./PBayDiagram.jpg)
 
 ## To-Do: (in-order)
 - Add Swagger to Users microservice
-- Make start-pbay-backend.sh file
 - add /products?=....., deleteProduct, modifyProduct routes to products
 - shipping microservice
 - payments microservice
