@@ -1,0 +1,16 @@
+syntax = "proto3";
+package protos;
+option go_package = "../protos";
+
+message UserData {
+	string name = 1;
+	string email = 2;
+}
+
+message UserEmail {
+	string email = 1;
+}
+
+service UserService {
+	rpc SendUserData(UserEmail) returns (UserData) {}
+}
