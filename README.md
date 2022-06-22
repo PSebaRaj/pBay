@@ -11,20 +11,18 @@ Goal is to implement microservices, rather than the monolithic approach that was
 	- `go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2`
 
 ## Usage
-To run the backend of the application, first clone the repository:
-	`git clone https://github.com/psebaraj/pbay.git`
+- To run the backend of the application, first clone the repository:
+	- `git clone https://github.com/psebaraj/pbay.git`
 
-Update PATH so protoc compiler can find plugins:
-	- `export PATH="$PATH:$(go env GOPATH)/bin"`
+- Navigate to the pBay directory
 
-Navigate to the pBay directory
+- (Re)make the protocall buffers for Go:
+	- First update protoc plugin PATH: `export PATH="$PATH:$(go env GOPATH)/bin"`
+	- Make all: `make protos`
+	- Make specific XXX protobuf: `make protoXXX`
 
-(Re)make the protocall buffers for Go:
-	`make protoUser`
-	...
-
-Build and run the application:
-	`./start-pbay-backend.sh`
+- Build and run the application:
+	- `./start-pbay-backend.sh`
 
 
 ## Diagram
@@ -42,7 +40,8 @@ Microservices should only know email or address, and use RPC to retrieve the res
 - [ ] add /products?=....., deleteProduct, modifyProduct routes to products
 - [ ] implement RPC
 	- [x] user
-	- [ ] address
+	- [x] address
+	- [x] currency
 - [ ] create remaining microservices
 	- [ ] shipping
 	- [ ] payments

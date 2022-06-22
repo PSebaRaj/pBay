@@ -1,10 +1,11 @@
 syntax = "proto3";
-package protos;
-option go_package = "../protos";
+package user;
+option go_package = "../user";
 
 message UserData {
 	string name = 1;
 	string email = 2;
+	bool activeStatus = 3;
 }
 
 message UserEmail {

@@ -4,7 +4,7 @@
 // - protoc             v3.19.4
 // source: protos/user.proto
 
-package protos
+package user
 
 import (
 	context "context"
@@ -35,7 +35,7 @@ func NewUserServiceClient(cc grpc.ClientConnInterface) UserServiceClient {
 
 func (c *userServiceClient) SendUserData(ctx context.Context, in *UserEmail, opts ...grpc.CallOption) (*UserData, error) {
 	out := new(UserData)
-	err := c.cc.Invoke(ctx, "/protos.UserService/SendUserData", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/user.UserService/SendUserData", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func _UserService_SendUserData_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.UserService/SendUserData",
+		FullMethod: "/user.UserService/SendUserData",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).SendUserData(ctx, req.(*UserEmail))
@@ -92,7 +92,7 @@ func _UserService_SendUserData_Handler(srv interface{}, ctx context.Context, dec
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var UserService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "protos.UserService",
+	ServiceName: "user.UserService",
 	HandlerType: (*UserServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

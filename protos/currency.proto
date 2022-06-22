@@ -1,0 +1,20 @@
+syntax = "proto3";
+package currency;
+option go_package = "../currency";
+
+// base is starting denomination
+// destination is target denomination
+message RateRequest {
+	string base = 1;
+	string destination = 2;
+}
+
+
+// current exchange rate (destination / base)
+message RateResponse {
+	string rate = 1;
+}
+
+service Currency {
+	rpc GetExchangeRate(RateRequest) returns (RateResponse) {}
+}

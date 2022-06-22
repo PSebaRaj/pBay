@@ -1,0 +1,21 @@
+syntax = "proto3";
+package address;
+option go_package = "../address";
+
+message Address {
+	string lineOne = 1;
+	string lineTwo = 2;
+	string city = 3;
+	string state = 4;
+	string country = 5;
+	int32 zipCode = 6;
+}
+
+message UserEmail {
+	string email = 1;
+}
+
+// given user's email, find their stored address to 1) estimated shipping, 2) delivery time, ...
+service UserService {
+	rpc GetAddress(UserEmail) returns (Address) {}
+}
