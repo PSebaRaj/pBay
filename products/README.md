@@ -11,5 +11,6 @@ Buggy Features:
 
 Features to be implemented:
 - Modify Product (have to use JWT / some form of auth to prevent illogical modification)
+	- gRPC w Users microservice
 
 Patrick SebaRaj, 2022
