@@ -1,7 +1,10 @@
-Messages API
+# Messages Service for PBay
 
-Functionality:
-- Direct message feature (REST)
-- Live chat for all bidders on specific products (definitely WebSockets)
-- Use gRPC to keep history per (product-specific) chatroom
+## Usage:
+To start the messages service:
+	`go run messages.go`
+
+## To-Do:
+- [] Direct message feature (REST)
+- [] Live chat for all bidders on specific products (definitely WebSockets)
 

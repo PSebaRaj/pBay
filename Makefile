@@ -1,6 +1,6 @@
-.PHONY: protos protoUser protoCurrency protoAddress
+.PHONY: protos protoUser protoCurrency protoProduct
 
-protos: protoUser protoCurrency protoAddress
+protos: protoUser protoCurrency protoProduct
 
 protoUser:
 	protoc --go_out=protos/user --go-grpc_out=protos/user protos/user.proto
@@ -8,5 +8,5 @@ protoUser:
 protoCurrency:
 	protoc --go_out=protos/currency --go-grpc_out=protos/currency protos/currency.proto
 
-protoAddress:
-	protoc --go_out=protos/address --go-grpc_out=protos/address protos/address.proto
+protoProduct:
+	protoc --go_out=protos/product --go-grpc_out=protos/product protos/product.proto

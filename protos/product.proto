@@ -1,0 +1,17 @@
+syntax = "proto3";
+package product;
+option go_package = "../product";
+
+message Product {
+	string name= 1;
+	int32 weight = 2;
+}
+
+message ProductName {
+	string name = 1;
+}
+
+// given product name, return weight (weight stored in products API)
+service ProductService {
+	rpc GetAddress(ProductName) returns (Product) {}
+}

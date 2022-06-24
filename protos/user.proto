@@ -2,10 +2,21 @@ syntax = "proto3";
 package user;
 option go_package = "../user";
 
+// for Messages microservice
 message UserData {
 	string name = 1;
 	string email = 2;
 	bool activeStatus = 3;
+}
+
+message UserPaymentData {
+	string name = 1;
+	string email = 2;
+
+	int64 creditCardNumber = 3;
+	int32 cvv = 4;
+	int32 expiryMonth = 5;
+	int32 expiryYear = 6;
 }
 
 message UserEmail {
@@ -14,4 +25,5 @@ message UserEmail {
 
 service UserService {
 	rpc SendUserData(UserEmail) returns (UserData) {}
+	rpc SendUserPayment(UserEmail) returns (UserPaymentData) {}
 }

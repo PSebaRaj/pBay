@@ -23,6 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserServiceClient interface {
 	SendUserData(ctx context.Context, in *UserEmail, opts ...grpc.CallOption) (*UserData, error)
+	SendUserPayment(ctx context.Context, in *UserEmail, opts ...grpc.CallOption) (*UserPaymentData, error)
 }
 
 type userServiceClient struct {
@@ -42,11 +43,21 @@ func (c *userServiceClient) SendUserData(ctx context.Context, in *UserEmail, opt
 	return out, nil
 }
 
+func (c *userServiceClient) SendUserPayment(ctx context.Context, in *UserEmail, opts ...grpc.CallOption) (*UserPaymentData, error) {
+	out := new(UserPaymentData)
+	err := c.cc.Invoke(ctx, "/user.UserService/SendUserPayment", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UserServiceServer is the server API for UserService service.
 // All implementations must embed UnimplementedUserServiceServer
 // for forward compatibility
 type UserServiceServer interface {
 	SendUserData(context.Context, *UserEmail) (*UserData, error)
+	SendUserPayment(context.Context, *UserEmail) (*UserPaymentData, error)
 	mustEmbedUnimplementedUserServiceServer()
 }
 
@@ -56,6 +67,9 @@ type UnimplementedUserServiceServer struct {
 
 func (UnimplementedUserServiceServer) SendUserData(context.Context, *UserEmail) (*UserData, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendUserData not implemented")
+}
+func (UnimplementedUserServiceServer) SendUserPayment(context.Context, *UserEmail) (*UserPaymentData, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendUserPayment not implemented")
 }
 func (UnimplementedUserServiceServer) mustEmbedUnimplementedUserServiceServer() {}
 
@@ -88,6 +102,24 @@ func _UserService_SendUserData_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UserService_SendUserPayment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserEmail)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).SendUserPayment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/user.UserService/SendUserPayment",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).SendUserPayment(ctx, req.(*UserEmail))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // UserService_ServiceDesc is the grpc.ServiceDesc for UserService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -98,6 +130,10 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SendUserData",
 			Handler:    _UserService_SendUserData_Handler,
+		},
+		{
+			MethodName: "SendUserPayment",
+			Handler:    _UserService_SendUserPayment_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
