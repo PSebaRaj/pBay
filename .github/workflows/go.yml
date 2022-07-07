@@ -19,4 +19,4 @@ jobs:
         go-version: 1.18
 
     - name: Build
-      run: go build /users/users.go
+      run: go build main.go
