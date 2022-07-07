@@ -5,7 +5,7 @@
 [![Go ReportCard](https://goreportcard.com/badge/github.com/psebaraj/pbay?style=for-the-badge)](https://goreportcard.com/report/psebaraj/pbay)
 [![Lines of Code](https://img.shields.io/tokei/lines/github/psebaraj/pbay?style=for-the-badge)](https://github.com/psebaraj/pbay/actions)
 
-![Work In Progress](https://img.shields.io/badge/Work%20In%20Progress-orange?style=for-the-badge)
+![Work In Progress](https://img.shields.io/badge/Status-Work%20In%20Progress-orangestyle=for-the-badge)
 
 An eBay clone, built with Go and React.
 
