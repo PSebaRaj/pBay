@@ -1,4 +1,5 @@
 # PBay
+![Work In Progress](https://img.shields.io/badge/Work%20In%20Progress-orange?style=for-the-badge)
 [![Latest Release](https://img.shields.io/github/v/release/psebaraj/pbay?include_prereleases&style=for-the-badge)](https://github.com/psebaraj/pbay/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge)](/LICENSE)
 [![Build Status](https://img.shields.io/github/workflow/status/psebaraj/pbay/Go?style=for-the-badge)](https://github.com/PSebaRaj/pbay/actions/workflows/go.yml)
