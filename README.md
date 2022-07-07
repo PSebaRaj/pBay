@@ -34,8 +34,8 @@ Goal is to implement microservices, rather than the monolithic approach that was
 ## Diagram
 ![pBay](./PBayDiagram.jpg)
 
-Microservices should only know email or address, and use RPC to retrieve the rest of the user's
-	or address's data
+Microservices should only know user email or given product name, and use RPC to retrieve the rest of the user's
+	data
 
 ## To-Do:
 - [ ] Add Swagger
@@ -44,10 +44,11 @@ Microservices should only know email or address, and use RPC to retrieve the res
 	- [ ] messages
 - [x] shell script for starting all services
 - [ ] add /products?=....., deleteProduct, modifyProduct routes to products
-- [ ] implement RPC
-	- [x] user
-	- [x] address
-	- [x] currency
+- [ ] gRPC
+	- [x] create protobufs
+	- [ ] implement user
+	- [ ] implement address
+	- [ ] implement currency
 - [ ] create remaining microservices
 	- [ ] shipping
 	- [ ] payments
