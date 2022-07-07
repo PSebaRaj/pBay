@@ -5,7 +5,7 @@
 [![Go ReportCard](https://goreportcard.com/badge/github.com/psebaraj/pbay?style=for-the-badge)](https://goreportcard.com/report/psebaraj/pbay)
 [![Lines of Code](https://img.shields.io/tokei/lines/github/psebaraj/pbay?style=for-the-badge)](https://github.com/psebaraj/pbay/actions)
 
-An eBay clone, built with Go and React.
+An eBay clone, built with Go and React. Frontend can be found [here](https://github.com/PSebaRaj/pBay-Frontend)
 
 Goal is to implement microservices, rather than the monolithic approach that was taken for my other projects (TradingPlatform, etc.), as well as implement RPCs (gRPC)
 
