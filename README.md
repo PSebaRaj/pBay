@@ -1,4 +1,11 @@
 # PBay
+[![Latest Release](https://img.shields.io/github/release/psebaraj/pbay.svg?style=for-the-badge)](https://github.com/psebaraj/pbay/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge)](/LICENSE)
+[![Build Status](https://img.shields.io/github/workflow/status/psebaraj/pbay/Go?style=for-the-badge)](https://github.com/PSebaRaj/pbay/actions/workflows/go.yml)
+[![Go ReportCard](https://goreportcard.com/badge/github.com/psebaraj/pbay?style=for-the-badge)](https://goreportcard.com/report/psebaraj/pbay)
+[![Lines of Code](https://img.shields.io/tokei/lines/github/psebaraj/pbay?style=for-the-badge)](https://github.com/psebaraj/pbay/actions)
+
+
 An eBay clone, built with Go and React.
 
 Goal is to implement microservices, rather than the monolithic approach that was taken for my other projects (TradingPlatform, etc.), as well as implement RPCs (gRPC)
