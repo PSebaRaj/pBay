@@ -15,6 +15,7 @@ Goal is to implement microservices, rather than the monolithic approach that was
 - Go
 - Gorilla Mux
 - gRPC
+- MySQL
 
 #### Client
 - Typescript
