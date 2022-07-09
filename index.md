@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+## PBay - Github Pages
+[![Latest Release](https://img.shields.io/github/v/release/psebaraj/pbay?include_prereleases&style=for-the-badge)](https://github.com/psebaraj/pbay/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge)](/LICENSE)
+[![Build Status](https://img.shields.io/github/workflow/status/psebaraj/pbay/Go?style=for-the-badge)](https://github.com/PSebaRaj/pbay/actions/workflows/go.yml)
+[![Go ReportCard](https://goreportcard.com/badge/github.com/psebaraj/pbay?style=for-the-badge)](https://goreportcard.com/report/psebaraj/pbay)
+[![Lines of Code](https://img.shields.io/tokei/lines/github/psebaraj/pbay?style=for-the-badge)](https://github.com/psebaraj/pbay/actions)
 
-You can use the [editor on GitHub](https://github.com/PSebaRaj/pBay/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Note: This is still a WIP. If you're looking for a more complete representation of my ability, check out GoGetItDone [here](https://github.com/PSebaRaj/GoGetItDone).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+An eBay clone, built with Go and React. While the frontend can be found [here](https://github.com/PSebaRaj/pBay-Frontend), I'm currently focusing on completing the backend, or at least getting most of the functionality built, before shifting my focus to the frontend.
 
-### Markdown
+Goal is to implement microservices, rather than the monolithic approach that was taken for my other projects (TradingPlatform, GoGetItDone, etc.), as well as implement RPCs (gRPC) for converting currencies, checking if user is chat banned, etc.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/PSebaRaj/pBay/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Languages, Technologies, and Frameworks
+#### Server
+- Go
+- Gorilla Mux
+- gRPC
+#### Client
+- Typescript
+- React
