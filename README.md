@@ -20,7 +20,7 @@ Goal is to implement microservices, rather than the monolithic approach that was
 - Each microservice has it's own list of dependencies, which can be found in it's respective `README.md`
 
 ## Diagram
-![pBay](./PBayDiagram.jpg)
+![pBay](./PBayDiagram.jpeg)
 
 ## To-Do:
 - [ ] Add a deployment/usage section to the parent `README.md` file
