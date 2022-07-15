@@ -1,5 +1,12 @@
+.PHONY: protos protoUser install_swag swagger
+
+protos: protoUser
+
+protoUser:
+	protoc --go_out=pb --go-grpc_out=pb proto/user.proto
+
 install_swag:
 	which swagger || go get -u github.com/go-swagger/go-swagger/cmd/swagger
 
 swagger: install_swag
-	swagger generate spec -o ./docs/swagger.yaml --scan-models
+	 swagger generate spec -o ./docs/swagger.yaml --scan-models
