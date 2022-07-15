@@ -11,6 +11,10 @@ An eBay clone, built with Go and React. Frontend can be found [here](https://git
 
 Goal is to implement microservices, rather than the monolithic approach that was taken for my other projects (TradingPlatform, GoGetItDone, etc.), as well as implement RPCs (gRPC).
 
+## Notes for myself
+- [YAML Configs](https://dev.to/koddr/let-s-write-config-for-your-golang-web-app-on-right-way-yaml-5ggp)
+
+
 ## Dependencies
 - Go
 - (gRPC) Protocol buffer compiler (protoc)
