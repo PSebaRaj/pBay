@@ -1,5 +1,5 @@
 syntax = "proto3";
-package currency;
+//package currency;
 option go_package = "../currency";
 
 service Currency {
@@ -10,9 +10,9 @@ service Currency {
 // RateRequest defines the request for a GetRate call
 message RateRequest {
     // Base is the base currency code for the rate
-    string Base = 1;
+    Currencies Base = 1;
     // Destination is the destination currency code for the rate
-    string Destination = 2;
+    Currencies Destination = 2;
 }
 
 // RateResponse is the response from a GetRate call, it contains
@@ -20,4 +20,33 @@ message RateRequest {
 // two currencies specified in the request.
 message RateResponse {
     float rate = 1;
+}
+
+// Currencies is an enum which represents the allowed currencies for the API
+// List sourced from the Fed: https://www.federalreserve.gov/releases/h10/current/
+enum Currencies {
+  USD=0; // US Dollar
+  AUD=1; // Australian Dollar
+  BRL=2; // Brazilian Real
+  CAD=3; // Canadian Dollar
+  CNY=4; // Chinese Yuan (Renminbi)
+  DKK=5; // Danish Krone
+  EUR=6; // (EMU) Euro
+  HKD=7; // Hong Kong Dollar
+  INR=8; // Indian Rupee
+  JPY=9; // Japanese Yen
+  MYR=10; // Malaysian Ringgit
+  MXN=11; // Mexican Peso
+  NZD=12; // New Zealand Dollar
+  NOK=13; // Norwegian Krone
+  SGD=14; // Singapore Dollar
+  ZAR=15; // South African Rand
+  KRW=16; // (South) Korean Won
+  LKR=17; // Sri Lanka Rupee
+  SEK=18; // Swedish Krona
+  CHF=19; // Swiss Franc
+  TWD=20; // New Taiwan Dollar
+  THB=21; // Taiwanese Baht
+  GBP=22; // (GB) Pound Sterling
+  VES=23; // Bolivar Soberano
 }
