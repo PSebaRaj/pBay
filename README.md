@@ -14,7 +14,6 @@ Goal is to implement microservices, rather than the monolithic approach that was
 ## Notes for myself
 - [YAML Configs](https://dev.to/koddr/let-s-write-config-for-your-golang-web-app-on-right-way-yaml-5ggp)
 
-
 ## Dependencies
 - Go
 - (gRPC) Protocol buffer compiler (protoc)
@@ -28,6 +27,7 @@ Goal is to implement microservices, rather than the monolithic approach that was
 
 ## To-Do:
 - [ ] Add a deployment/usage section to the parent `README.md` file
+- [ ] Error handling for gRPC
 
 ## Contributor:
 - [Patrick SebaRaj](https://github.com/PSebaRaj)
