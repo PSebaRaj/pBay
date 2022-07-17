@@ -1,0 +1,4 @@
+Sun Jul 17 06:42:15 EDT 2022
+currency/main.go:	// TODO: disable, just for testing with grpcurl
+currency/server/currency.go:	// TODO: only create one instance of logger on startup, just pass it thru
+currency/server/currency.go:// TODO: Last Updated: 7/16/22

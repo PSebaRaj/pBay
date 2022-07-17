@@ -1,17 +1,24 @@
-environment: D
-grpc_address: 10000
-http_address: 9001
+# config.yaml
 
-mysql:
+http:
+  host: 127.0.0.1
+  port: 9001
+
+db:
+  dialect: mysql
   address: 127.0.0.1
-  database: users
+  database: products
   username: root
   password: rootroot
   protocol: tcp
   parse_time: true
+
 redis:
-  addr: 127.0.0.1:6379
-  password:
+  address: 127.0.0.1
+  port: 6379
+  password: nil
   db: 0
 
-
+currency_grpc:
+  address: 127.0.0.1
+  port: 9092
