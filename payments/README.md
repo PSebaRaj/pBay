@@ -1,3 +1,3 @@
 # Payments Service
 
-- RUNNING ON PORT 9093
+- RUNNING ON PORT 9003
