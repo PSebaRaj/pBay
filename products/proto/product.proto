@@ -1,0 +1,31 @@
+syntax = "proto3";
+//package currency;
+option go_package = "../proto-gen";
+
+service Product {
+    // GetRate returns the exchange rate for the two provided currency codes
+    rpc GetShippingRate(ShippingRequest) returns (ShippingResponse);
+}
+
+// RateRequest defines the request for a GetRate call
+message ShippingRequest {
+    // Base is the base currency code for the rate
+    UrgencyLevel Urgency = 1;
+    // Destination is the destination currency code for the rate
+    float Weight = 2;
+}
+
+// RateResponse is the response from a GetRate call, it contains
+// rate which is a floating point number and can be used to convert between the
+// two currencies specified in the request.
+message ShippingResponse {
+    float CostOfShipping = 1;
+}
+
+enum UrgencyLevel {
+  OVERNIGHT=0;
+  NEXTDAY=1;
+  TWODAY=2;
+  STANDARD=3;
+  INTERNATIONAL=4;
+}

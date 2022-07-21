@@ -43,6 +43,6 @@ func LoadSwagger(r *mux.Router) {
 	fmt.Println("Swagger can be found /docs")
 
 	r.Handle("/docs", sh)
-	r.Handle("/swagger.yaml", http.FileServer(http.Dir("./")))
+	r.Handle("/swagger.yaml", http.FileServer(http.Dir("../../swagger-gen")))
 	// end swagger
 }

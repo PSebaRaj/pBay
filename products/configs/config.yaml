@@ -18,7 +18,11 @@ redis:
   address: 127.0.0.1
   port: 6379
   password: ""
-  db: 0
+  db: 1
+
+product_grpc:
+  address: 127.0.0.1
+  port: 9093
 
 currency_grpc:
   address: 127.0.0.1

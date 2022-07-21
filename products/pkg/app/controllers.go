@@ -3,11 +3,12 @@ package app
 import (
 	"encoding/json"
 	"fmt"
-	"io"
+
+	//"io"
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/psebaraj/pbay/products/internal/cache"
+	//"github.com/psebaraj/pbay/products/internal/cache"
 	"github.com/psebaraj/pbay/products/pkg/database"
 	"github.com/psebaraj/pbay/products/pkg/models"
 )
@@ -22,20 +23,20 @@ import (
 //   200: Product
 //   404: nil
 //
-// controller: get singular (regular) product
+// controller: get singular  product
 // res: one product as JSON
 func GetProduct(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	var product models.Product
 
 	// If the element is found in the redis cache, directly return it
-	res := cache.GetFromCache(cache.REDIS, params["id"])
-	if res != nil {
-		fmt.Println("Cache hit")
-		io.WriteString(w, res.(string))
-		return
-	}
-	fmt.Println("Cache miss")
+	//res := cache.GetFromCache(cache.REDIS, params["id"])
+	//if res != nil {
+	//	fmt.Println("Cache hit")
+	//	io.WriteString(w, res.(string))
+	//	return
+	//}
+	//fmt.Println("Cache miss")
 	database.DB.First(&product, params["id"])
 
 	if product.Title == "" { // i.e. product not found
@@ -46,7 +47,7 @@ func GetProduct(w http.ResponseWriter, r *http.Request) {
 
 	// Set element in the redis cache before returning the result
 	// "id" is what I query with
-	cache.SetInCache(cache.REDIS, params["id"], product)
+	//cache.SetInCache(cache.REDIS, params["id"], product)
 
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(&product)
@@ -62,7 +63,7 @@ func GetProduct(w http.ResponseWriter, r *http.Request) {
 //   200: []Product
 //   204: nil
 //
-// controller: get all (regular) products
+// controller: get all products
 // res: list of products as JSON
 func GetProducts(w http.ResponseWriter, r *http.Request) {
 	var products []models.Product
@@ -92,13 +93,15 @@ func GetProducts(w http.ResponseWriter, r *http.Request) {
 //   201: Product
 //   507: nil
 //
-// controller: create singular (regular) product
-// res: created (regular) product as JSON
+// controller: create singular  product
+// res: created product as JSON
 func CreateProduct(w http.ResponseWriter, r *http.Request) {
 	var product models.Product
 	json.NewDecoder(r.Body).Decode(&product)
+	//fmt.Printf("%s %s %f %f %f\n", product.Title, product.Description, product.StartingBidPrice, product.CurrentBidPrice, product.BuyNowPrice)
 
 	createdProduct := database.DB.Create(&product)
+
 	err := createdProduct.Error
 	if err != nil {
 		fmt.Printf("Error creating product %s, error: %s", product.Title, err)
@@ -121,7 +124,7 @@ func CreateProduct(w http.ResponseWriter, r *http.Request) {
 //   404: nil
 //   500: nil
 //
-// controller: delete singular (regular) product
+// controller: delete singular product
 // res: deleted product as JSON
 func DeleteProduct(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
@@ -144,7 +147,7 @@ func DeleteProduct(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// also delete from cache
-	cache.DeleteFromCache(cache.REDIS, params["id"])
+	// cache.DeleteFromCache(cache.REDIS, params["id"])
 
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(&product)

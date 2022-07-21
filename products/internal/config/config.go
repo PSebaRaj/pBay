@@ -32,10 +32,16 @@ type Config struct {
 		DBNumber int    `yaml:"db"`
 	} `yaml:"redis"`
 
+	ProductGRPCServer struct {
+		Address string `yaml:"address"`
+		Port    string `yaml:"port"`
+	} `yaml:"product_grpc"`
+
 	CurrencyGRPCConn struct {
 		Address string `yaml:"address"`
 		Port    string `yaml:"port"`
 	} `yaml:"currency_grpc"`
+
 }
 
 // NewConfig returns a new decoded Config struct
