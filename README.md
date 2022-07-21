@@ -25,6 +25,29 @@ Goal is to implement microservices, rather than the monolithic approach that was
 ## Diagram
 ![pBay](https://github.com/PSebaRaj/pBay/blob/main/PBayDiagram.jpg)
 
+## Status
+- [x] Currency (gRPC Server)
+- [ ] Advertisements (REST)
+- [ ] Products
+	- [ ] REST
+	- [ ] gRPC Client (Currency)
+	- [x] gRPC Server (Shipping)
+- [ ] Shipping
+	- [ ] REST
+	- [ ] gRPC Client (Products)
+	- [ ] gRPC Client (Currency)
+- [ ] Payments
+	- [ ] REST
+	- [ ] gRPC Client (Users)
+- [ ] Users
+	- [ ] REST
+	- [ ] gRPC Server (Payments)
+	- [ ] gRPC Server (Messages, Bidirectional)
+- [ ] Messages
+	- [ ] REST
+	- [ ] WebSocket
+	- [ ] gRPC Client (Users, Bidirectional)
+
 ## To-Do:
 - [ ] Add a deployment/usage section to the parent `README.md` file
 - [ ] Error handling for gRPC
