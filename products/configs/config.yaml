@@ -7,6 +7,7 @@ http:
 db:
   dialect: mysql
   address: 127.0.0.1
+  port: 3306
   database: products
   username: root
   password: rootroot
@@ -16,7 +17,7 @@ db:
 redis:
   address: 127.0.0.1
   port: 6379
-  password: nil
+  password: ""
   db: 0
 
 currency_grpc:

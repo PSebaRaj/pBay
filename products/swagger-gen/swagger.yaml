@@ -1,0 +1,54 @@
+info: {}
+paths:
+  /product:
+    post:
+      consumes:
+      - application/json
+      operationId: createProduct
+      produces:
+      - application/json
+      responses:
+        "201":
+          $ref: '#/responses/Product'
+        "507":
+          $ref: '#/responses/nil'
+      tags:
+      - Product
+  /product/{id}:
+    delete:
+      operationId: deleteProduct
+      produces:
+      - application/json
+      responses:
+        "200":
+          $ref: '#/responses/Product'
+        "404":
+          $ref: '#/responses/nil'
+        "500":
+          $ref: '#/responses/nil'
+      tags:
+      - Product
+    get:
+      operationId: getProduct
+      produces:
+      - application/json
+      responses:
+        "200":
+          $ref: '#/responses/Product'
+        "404":
+          $ref: '#/responses/nil'
+      tags:
+      - Product
+  /products:
+    get:
+      operationId: getProducts
+      produces:
+      - application/json
+      responses:
+        "200":
+          $ref: '#/responses/Product'
+        "204":
+          $ref: '#/responses/nil'
+      tags:
+      - Product
+swagger: "2.0"

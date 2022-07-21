@@ -18,6 +18,7 @@ type Config struct {
 		Dialect   string `yaml:"dialect"`
 		Address   string `yaml:"address"`
 		Database  string `yaml:"database"`
+		Port      string `yaml:"port"`
 		Username  string `yaml:"username"`
 		Password  string `yaml:"password"`
 		Protocol  string `yaml:"protocol"`
