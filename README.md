@@ -3,7 +3,7 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge)](/LICENSE)
 [![Build Status](https://img.shields.io/github/workflow/status/psebaraj/pbay/Go?style=for-the-badge)](https://github.com/PSebaRaj/pbay/actions/workflows/go.yml)
 [![Go ReportCard](https://goreportcard.com/badge/github.com/psebaraj/pbay?style=for-the-badge)](https://goreportcard.com/report/psebaraj/pbay)
-[![Lines of Code](https://img.shields.io/tokei/lines/github/psebaraj/pbay?style=for-the-badge)](https://github.com/psebaraj/pbay/actions)
+[![Lines of Code](https://img.shields.io/tokei/lines/github/psebaraj/pBay?style=for-the-badge)](https://github.com/psebaraj/pbay/actions)
 
 NOTE: This project is currently being refactored. Check out the `refactoring` branch for more info.
 
