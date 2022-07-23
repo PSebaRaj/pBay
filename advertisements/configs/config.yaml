@@ -1,17 +1,14 @@
-environment: D
-grpc_address: 10000
-http_address: 9005
+http:
+  host: 127.0.0.1
+  port: 9005
 
-mysql:
+db:
+  dialect: mysql
   address: 127.0.0.1
-  database: users
+  port: 3306
+  database: advertisements
   username: root
   password: rootroot
   protocol: tcp
   parse_time: true
-redis:
-  addr: 127.0.0.1:6379
-  password:
-  db: 0
-
 
