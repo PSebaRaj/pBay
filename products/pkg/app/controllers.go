@@ -1,17 +1,22 @@
 package app
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 
 	//"io"
 	"net/http"
 
+	currencyProtos "github.com/psebaraj/pbay/products/proto/client"
 	"github.com/gorilla/mux"
+
 	//"github.com/psebaraj/pbay/products/internal/cache"
 	"github.com/psebaraj/pbay/products/pkg/database"
 	"github.com/psebaraj/pbay/products/pkg/models"
 )
+
+var currencyGRPCConnection currencyProtos.CurrencyClient = ConnGRPCServers()
 
 // swagger:route GET /product/{id} Product getProduct
 //
@@ -48,6 +53,24 @@ func GetProduct(w http.ResponseWriter, r *http.Request) {
 	// Set element in the redis cache before returning the result
 	// "id" is what I query with
 	//cache.SetInCache(cache.REDIS, params["id"], product)
+ //
+ //
+	rateReq := &currencyProtos.RateRequest{
+		Base: currencyProtos.Currencies(currencyProtos.Currencies_value["EUR"]),
+		Destination: currencyProtos.Currencies(currencyProtos.Currencies_value["USD"]),
+	}
+
+	resp, err := currencyGRPCConnection.GetRate(context.Background(), rateReq)
+	if err != nil {
+		fmt.Println("Could not get the exchange rate from the currency gRPC server")
+
+		return
+		// handle gRPC err
+	}
+	product.BuyNowPrice = product.BuyNowPrice * resp.Rate
+	product.CurrentBidPrice = product.CurrentBidPrice * resp.Rate
+	product.StartingBidPrice = product.StartingBidPrice * resp.Rate
+
 
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(&product)

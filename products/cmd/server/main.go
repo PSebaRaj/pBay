@@ -7,6 +7,7 @@ import (
 	"github.com/psebaraj/pbay/products/pkg/app"
 )
 
+
 func main() {
 	// Generate our config based on the config supplied
 	// by the user in the flags
@@ -19,6 +20,7 @@ func main() {
 		log.Fatal(err)
 	}
 
+	app.FetchConfig(*cfg)
 
 	go app.StartProductGRPCServer(*cfg)
 	app.StartProductServer(*cfg)
